@@ -1,0 +1,24 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      docker: 18
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR Test...
+      - aws --version
+      - $(aws ecr get-login --region us-east-1 --no-include-email)
+  build:
+    commands:
+      - echo Building the Docker image...
+      - docker build -t 126075504976.dkr.ecr.us-east-1.amazonaws.com/dashds4atrocafone:latest .
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing the Docker image...
+      - docker push 126075504976.dkr.ecr.us-east-1.amazonaws.com/dashds4atrocafone:latest
+artifacts:
+  files:
+    - '**/*'
+  base-directory: 'qsmsdev-deployment'
