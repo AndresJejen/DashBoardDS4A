@@ -1,0 +1,10 @@
+version: "3.3"
+services:
+  data:
+    build: .
+    container_name: Dash
+    restart: always
+    expose:
+      - 8050
+    ports:
+      - 9090:8050

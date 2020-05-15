@@ -1,19 +1,8 @@
 {
-    "AWSEBDockerrunVersion": 2,
-    "containerDefinitions": [
-        {
-            "name": "dashds4atrocafone",
-            "image": "126075504976.dkr.ecr.us-east-1.amazonaws.com/dashds4atrocafone:latest",
-            "memory": 128,
-            "portMappings": [
-                {
-                    "hostPort": 8050,
-                    "containerPort": 8050
-                }
-            ],
-            "links": [
-                "frontend"
-            ]
-        }
-    ]
-}
+    "AWSEBDockerrunVersion": "1",
+    "Image": {
+      "Name": "126075504976.dkr.ecr.us-east-1.amazonaws.com/dashds4atrocafone:latest",
+      "Update": "true"
+    },
+    "Ports": [ { "ContainerPort" : 8050 } ]
+ }
