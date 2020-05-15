@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ee48c2da-8bbb-4e57-88b4-d61297a113d3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Deployment/Dockerrun.aws.json" beforeDir="false" afterPath="$PROJECT_DIR$/Deployment/Dockerrun.aws.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
