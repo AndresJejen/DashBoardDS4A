@@ -1,5 +1,5 @@
 {
-    "AWSEBDockerrunVersion": "1",
+    "AWSEBDockerrunVersion": "2",
     "Image": {
       "Name": "126075504976.dkr.ecr.us-east-1.amazonaws.com/dashds4atrocafone:latest",
       "Update": "true"
