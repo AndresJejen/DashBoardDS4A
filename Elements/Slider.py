@@ -7,5 +7,5 @@ def RangeSlider(id, topdates):
         max=topdates.index[-1],
         step=1,
         value=[topdates.index[0], topdates.index[-1]],
-        marks={numd: date.strftime('%d-%m-%Y') for numd, date in zip(topdates.index, topdates['Date']) if numd % 30 == 0}
+        marks={numd: date.strftime('%d-%m-%Y') for numd, date in zip(topdates.index, topdates['Date']) if numd % 25 == 0}
     )

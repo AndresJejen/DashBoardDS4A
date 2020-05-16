@@ -4,5 +4,5 @@
       "Name": "126075504976.dkr.ecr.us-east-1.amazonaws.com/dashds4atrocafone:latest",
       "Update": "true"
     },
-    "Ports": [ { "ContainerPort" : 8050 } ]
+    "Ports": [ { "ContainerPort" : 9090 } ]
  }

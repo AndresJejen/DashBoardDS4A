@@ -1,43 +1,44 @@
-from app import app, es
+from app import app
 
-import dash_core_components as dcc
 import dash_html_components as html
 import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
 
-from Elements.Cards import card
-from Elements.LinePlot import lineplot
-from Elements.DropDown import Dropdown
-from Elements.Slider import RangeSlider
+from Elements import card
 
+from Pages import historical_tab
 
-topdates = es.gq_max_min_timestamp()
-events = es.gq_all_events_dataframe()
+cards = dbc.Row([
+            dbc.Col(card("cardTitle", children="Trocafone DashBoard DS4A"), width=10),
+        ])
 
-cards = dbc.Row([dbc.Col(card("card1"), width=4), dbc.Col(card("card2"), width=8)])
-app.layout = html.Div([
-    cards,
-    RangeSlider("rangeslider", topdates),
-    Dropdown("EventValues", "Events",events.Event.values),
-    dcc.Graph(id='chart-with-slider'),
-])
+tabs = dbc.Tabs(
+    [
+        dbc.Tab(label="Historical", tab_id="Historical")
+    ],
+    id="tabs",
+)
 
+app.layout = dbc.Container([
+                cards,
+                tabs,
+                html.Div(id="tab-content", className="p-4")
+            ])
 
 @app.callback(
-    [Output('chart-with-slider', 'figure')],
-    [
-        Input('rangeslider', 'value'),
-        Input('EventValues', 'value')
-    ]
+    Output("tab-content", "children"),
+    [Input("tabs", "active_tab")],
 )
-def changeRange_csv(year, evento):
-    evento = "conversion" if evento == "Events" else evento
-    since, to = topdates.Date[year[0]], topdates.Date[year[1]]
-    dates = es.gq_count_event_by_range(evento, since, to)
-
-    figure_lineplot = lineplot(dates,since, to, evento)
-
-    return [figure_lineplot]
+def render_tab_content(active_tab):
+    """
+    Renderiza el contenido de los Tabs
+    :param active_tab:
+    :return:
+    """
+    if active_tab is not None:
+        if active_tab == "Historical":
+            return historical_tab
+    return historical_tab
 
 
 if __name__ == '__main__':

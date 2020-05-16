@@ -1,5 +1,5 @@
 venv
 # Elastic Beanstalk Files
-Deployment/.elasticbeanstalk/*
+.elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml

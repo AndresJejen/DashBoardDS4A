@@ -1,7 +1,14 @@
-import dash_bootstrap_components as dbc
 import dash_core_components as dcc
 
-def Dropdown(id, value, list):
+
+def Dropdown(id: str, value: str = "conversion", list = []):
+    """
+    Genera un dropDown
+    :param id:
+    :param value:
+    :param list:
+    :return:
+    """
     return dcc.Dropdown(
         id=id,
         value=value,

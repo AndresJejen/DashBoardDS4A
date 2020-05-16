@@ -1,7 +1,7 @@
 import plotly.graph_objs as go
 
 
-def lineplot(dates, since, to, evento):
+def lineplot(dates, since, to, event: str):
     """
     Carga los datos y Layout de la grafica lineplot
     :param dates: Arreglo con las fechas
@@ -10,6 +10,6 @@ def lineplot(dates, since, to, evento):
     :return: Figure
     """
     data = [go.Scatter(x=dates['Date'], y=dates['Total'])]
-    layout = go.Layout(title='Total Registers By Day Since: {0}, To: {1}. For {2}'.format(str(since), str(to), evento))
+    layout = go.Layout(margin=dict(l=0, r=0, t=20, b=20),)
     figure = go.Figure(data=data, layout=layout)
     return figure
