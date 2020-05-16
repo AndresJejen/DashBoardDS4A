@@ -1,19 +1,18 @@
-from app import app
+from app import app, es
 
 import dash_html_components as html
 import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
 
-from Elements import card
-
-from Pages import historical_tab
+from Pages import historical_tab, general_tab
 
 cards = dbc.Row([
-            dbc.Col(card("cardTitle", children="Trocafone DashBoard DS4A"), width=10),
+            dbc.Col(html.H1("Trocafone DashBoard DS4A"), width=10),
         ])
 
 tabs = dbc.Tabs(
     [
+        dbc.Tab(label="General", tab_id="General"),
         dbc.Tab(label="Historical", tab_id="Historical")
     ],
     id="tabs",
@@ -24,6 +23,7 @@ app.layout = dbc.Container([
                 tabs,
                 html.Div(id="tab-content", className="p-4")
             ])
+
 
 @app.callback(
     Output("tab-content", "children"),
@@ -38,6 +38,8 @@ def render_tab_content(active_tab):
     if active_tab is not None:
         if active_tab == "Historical":
             return historical_tab
+        if active_tab == "General":
+            return general_tab
     return historical_tab
 
 

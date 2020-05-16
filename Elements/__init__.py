@@ -3,3 +3,5 @@ from .LinePlot import lineplot
 from .DropDown import Dropdown
 from .Scatterplot import scatterplot
 from .Slider import RangeSlider
+from .Histogram import Histogram
+from .Barplot import barplot

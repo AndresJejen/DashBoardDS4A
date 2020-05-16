@@ -1,0 +1,70 @@
+from app import app, basic_data, es
+
+import dash_core_components as dcc
+import dash_html_components as html
+import dash_bootstrap_components as dbc
+from dash.dependencies import Input, Output
+
+from Elements import Histogram, RangeSlider, barplot
+
+# Datos Generales
+topdates = basic_data[0]
+
+# Ids
+sliderId = "rangeSliderGeneral"
+
+cards = dbc.Row([
+            html.H1(children='General Overview')
+        ])
+
+general_tab = html.Div([
+    cards,
+    dbc.Col(RangeSlider(sliderId, topdates), width=11),
+    dbc.Row([
+        dbc.Col(html.H5("Quantity and price distribution"), width=4),
+        dbc.Col(html.H5("Client Description"), width=4),
+        dbc.Col(html.H5("Purchase Description"), width=4)
+    ]),
+    dbc.Row([
+        dbc.Col(dcc.Graph(id='histogram-prices-conversion'), width=4),
+        html.Div(),
+        dbc.Col(dcc.Graph(id='barplot-brand-conversion'), width=4),
+    ]),
+    dbc.Row([
+        dbc.Col(dcc.Graph(id='histogram-number-person-conversion'), width=4),
+        html.Div(),
+        dbc.Col(dcc.Graph(id='barplot-condition-conversion'), width=4),
+    ])
+])
+
+
+@app.callback(
+    [
+        Output('histogram-prices-conversion', 'figure'),
+        Output('histogram-number-person-conversion', 'figure'),
+        Output('barplot-brand-conversion', 'figure'),
+        Output('barplot-condition-conversion', 'figure'),
+        Output('output-{}'.format(sliderId), 'children')
+    ],
+    [
+        Input(sliderId, 'value')
+    ]
+)
+def changerange_csv(year):
+    since, to = topdates.Date[year[0]], topdates.Date[year[1]]
+
+    datos_prices_conversion = es.gq_prices_in_conversions(since, to)
+    datos_person_conversion = es.gq_num_convertions_by_person(since, to)
+    datos_brand_conversion = es.gq_count_model_purchases(since, to)
+    datos_condition_conversion = es.gq_count_condition_purchases(since, to)
+
+    prices_conversion = Histogram(datos_prices_conversion['price'])
+    person_conversion = Histogram(datos_person_conversion['Total Purchases'])
+    brand_conversion = barplot(datos_brand_conversion['Brand'], datos_brand_conversion['Total'])
+    condition_conversion = barplot(datos_condition_conversion['Brand'], datos_condition_conversion['Total'])
+
+    return [prices_conversion,
+            person_conversion,
+            brand_conversion,
+            condition_conversion,
+            'You have selected " From {0:%Y-%m-%d} - To {1:%Y-%m-%d}"'.format(since, to)]

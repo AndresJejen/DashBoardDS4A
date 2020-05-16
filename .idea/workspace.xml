@@ -2,19 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ee48c2da-8bbb-4e57-88b4-d61297a113d3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/User.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Elements/Scatterplot.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pages/General.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pages/Historical.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pages/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Elements/Barplot.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Elements/Histogram.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Deployment/Dockerrun.aws.json" beforeDir="false" afterPath="$PROJECT_DIR$/Deployment/Dockerrun.aws.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elements/Cards.py" beforeDir="false" afterPath="$PROJECT_DIR$/Elements/Cards.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elements/DropDown.py" beforeDir="false" afterPath="$PROJECT_DIR$/Elements/DropDown.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DAO/ElasticSearchQuery.py" beforeDir="false" afterPath="$PROJECT_DIR$/DAO/ElasticSearchQuery.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Elements/LinePlot.py" beforeDir="false" afterPath="$PROJECT_DIR$/Elements/LinePlot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Elements/Scatterplot.py" beforeDir="false" afterPath="$PROJECT_DIR$/Elements/Scatterplot.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Elements/Slider.py" beforeDir="false" afterPath="$PROJECT_DIR$/Elements/Slider.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Elements/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Elements/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/General.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/General.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/Historical.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Historical.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/server.py" afterDir="false" />
     </list>
@@ -101,22 +99,22 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="463" y="139" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1589475727200" />
-    <state width="1345" height="293" key="GridCell.Tab.0.bottom" timestamp="1589631521710">
+    <state width="1345" height="293" key="GridCell.Tab.0.bottom" timestamp="1589655699395">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1345" height="293" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1589631521710" />
-    <state width="1345" height="293" key="GridCell.Tab.0.center" timestamp="1589631521710">
+    <state width="1345" height="293" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1589655699395" />
+    <state width="1345" height="293" key="GridCell.Tab.0.center" timestamp="1589655699395">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1345" height="293" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1589631521710" />
-    <state width="1345" height="293" key="GridCell.Tab.0.left" timestamp="1589631521710">
+    <state width="1345" height="293" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1589655699395" />
+    <state width="1345" height="293" key="GridCell.Tab.0.left" timestamp="1589655699395">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1345" height="293" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1589631521710" />
-    <state width="1345" height="293" key="GridCell.Tab.0.right" timestamp="1589631521710">
+    <state width="1345" height="293" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1589655699395" />
+    <state width="1345" height="293" key="GridCell.Tab.0.right" timestamp="1589655699395">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1345" height="293" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1589631521710" />
+    <state width="1345" height="293" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1589655699395" />
     <state x="184" y="26" key="SettingsEditor" timestamp="1589575336072">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -125,9 +123,9 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="379" y="208" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1589626462462" />
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1589631678748">
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1589655188007">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1589631678748" />
+    <state x="346" y="89" width="672" height="678" key="search.everywhere.popup/0.0.1366.768@0.0.1366.768" timestamp="1589655188007" />
   </component>
 </project>

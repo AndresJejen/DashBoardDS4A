@@ -2,7 +2,7 @@ import dash
 import dash_bootstrap_components as dbc
 from DAO.ElasticSearchQuery import ElasticSearchQuery
 
-styles = [dbc.themes.BOOTSTRAP]
+styles = [dbc.themes.CYBORG]
 app = dash.Dash(__name__, external_stylesheets=styles)
 server = app.server
 app.config.suppress_callback_exceptions = True
