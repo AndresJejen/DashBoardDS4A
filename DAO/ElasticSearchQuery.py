@@ -16,7 +16,7 @@ class ElasticSearchQuery:
 
     def try_connect(self):
         """
-        Generates the COnection to Elastic Search
+        Generates the Conection to Elastic Search
         :return:
         """
         self.es = Elasticsearch(
@@ -97,8 +97,10 @@ class ElasticSearchQuery:
         }
         data = self.send_query(query)
         data = pd.DataFrame(data['aggregations']['sales_over_time']['buckets'])
-        data.columns = ["Date","key","Total"]
-        data.Date = pd.to_datetime(data.Date)
+        data.columns = ["Date", "key", "Total"]
+        data.index = data.Date.values
+        data.drop(["Date"], inplace=True, axis=1)
+        data.index = pd.to_datetime(data.index)
         return data
 
     def gq_all_dates_dataframe(self):
@@ -274,7 +276,7 @@ class ElasticSearchQuery:
         model_purchase = self.send_query(query)["aggregations"]["countByBrand"]['buckets']
         model_purchase = pd.DataFrame(model_purchase)
         model_purchase.key = model_purchase.key.apply(lambda x: x.split(" ")[0])
-        model_purchase = model_purchase.groupby('key').sum().sort_values(by=["doc_count"], ascending=False).reset_index()
+        model_purchase = model_purchase.groupby('key').sum().sort_values(by=["doc_count"], ascending=True).reset_index()
         model_purchase.columns = ["Brand", "Total"]
         return model_purchase
 
@@ -313,5 +315,6 @@ class ElasticSearchQuery:
         }
         condition_purchase = self.send_query(query)["aggregations"]["countBycondition"]['buckets']
         condition_purchase = pd.DataFrame(condition_purchase)
+        condition_purchase = condition_purchase.sort_values(by=["doc_count"], ascending=True).reset_index(drop=True)
         condition_purchase.columns = ["Brand", "Total"]
         return condition_purchase

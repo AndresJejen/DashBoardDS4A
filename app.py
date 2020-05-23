@@ -1,8 +1,9 @@
 import dash
 import dash_bootstrap_components as dbc
 from DAO.ElasticSearchQuery import ElasticSearchQuery
+from Models.ProjectModel import ProjectModel
 
-styles = [dbc.themes.CYBORG]
+styles = [dbc.themes.SIMPLEX]
 app = dash.Dash(__name__, external_stylesheets=styles)
 server = app.server
 app.config.suppress_callback_exceptions = True
@@ -13,3 +14,5 @@ url = "search-ds4a1-ewn5ngrlak4w5vxytn4h3h54za.us-east-1.es.amazonaws.com"
 es = ElasticSearchQuery(user, password, url=url)
 
 basic_data = [es.gq_max_min_timestamp(), es.gq_all_events_dataframe()]
+
+modelo = ProjectModel()

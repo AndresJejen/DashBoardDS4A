@@ -17,23 +17,25 @@ cards = dbc.Row([
             html.H1(children='General Overview')
         ])
 
+col_width=6
+
 general_tab = html.Div([
     cards,
     dbc.Col(RangeSlider(sliderId, topdates), width=11),
     dbc.Row([
-        dbc.Col(html.H5("Quantity and price distribution"), width=4),
-        dbc.Col(html.H5("Client Description"), width=4),
-        dbc.Col(html.H5("Purchase Description"), width=4)
+        dbc.Col(html.H5("Quantity and price distribution"), width=col_width),
+        #dbc.Col(html.H5("Client Description"), width=4),
+        dbc.Col(html.H5("Purchase Description"), width=col_width)
     ]),
     dbc.Row([
-        dbc.Col(dcc.Graph(id='histogram-prices-conversion'), width=4),
-        html.Div(),
-        dbc.Col(dcc.Graph(id='barplot-brand-conversion'), width=4),
+        dbc.Col(dcc.Graph(id='histogram-prices-conversion'), width=col_width),
+        #html.Div(),
+        dbc.Col(dcc.Graph(id='barplot-brand-conversion'), width=col_width),
     ]),
     dbc.Row([
-        dbc.Col(dcc.Graph(id='histogram-number-person-conversion'), width=4),
-        html.Div(),
-        dbc.Col(dcc.Graph(id='barplot-condition-conversion'), width=4),
+        dbc.Col(dcc.Graph(id='histogram-number-person-conversion'), width=col_width),
+        #html.Div(),
+        dbc.Col(dcc.Graph(id='barplot-condition-conversion'), width=col_width),
     ])
 ])
 
