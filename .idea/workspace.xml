@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ee48c2da-8bbb-4e57-88b4-d61297a113d3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Elements/Select.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Elements/Table.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Pages/StaticModelPageData.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Pages/Introduction.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elements/Barplot.py" beforeDir="false" afterPath="$PROJECT_DIR$/Elements/Barplot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elements/Histogram.py" beforeDir="false" afterPath="$PROJECT_DIR$/Elements/Histogram.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Elements/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Elements/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/General.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/General.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Historical.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Historical.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/Model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/Model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/server.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
