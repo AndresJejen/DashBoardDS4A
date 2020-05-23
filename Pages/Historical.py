@@ -23,27 +23,112 @@ cards = dbc.Row([
 historical_tab = html.Div([
     cards,
     dbc.Row([
-        dbc.Col(RangeSlider(sliderId, topdates), width=10),
-        dbc.Col(Dropdown("EventValues", "visited site", events.Event.values), width=2)
-    ],align="baseline"),
+        dbc.Col(
+            RangeSlider(sliderId, topdates),
+            width=9
+        ),
+        dbc.Col(
+            Dropdown(
+                "EventValues",
+                "visited site",
+                events.Event.values
+            ),
+            width=3
+        )
+    ], align="baseline"),
     dbc.Row([
-        dbc.Col(html.Div(id="card3"), width=4),
-        dbc.Col(html.Div(id="card4"), width=4),
-        dbc.Col(html.Div(id="card5"), width=4)
+        dbc.Col(
+            [
+                html.H4(id="card3", style={"text-align": "center"}),
+                dbc.Tooltip(
+                    "Number of events by day of selected event",
+                    target='card3',
+                )
+            ],
+            width=4,
+        ),
+        dbc.Col(
+            [
+                html.H4(id="card4", style={"text-align": "center"}),
+                dbc.Tooltip(
+                    "Number of conversions by day",
+                    target='card4',
+                )
+            ],
+            width=4
+        ),
+        dbc.Col(
+            [
+                html.H4(id="card5", style={"text-align": "center"}),
+                dbc.Tooltip(
+                    "Scatter Plot # Total conversions vs. selected event by day",
+                    target='card5',
+                )
+            ],
+            width=4
+        )
     ], className="h-25"),
     dbc.Row([
-        dbc.Col(dcc.Graph(id='chart-with-slider'), width=4),
-        dbc.Col(dcc.Graph(id='conversion_chart'), width=4),
+        dbc.Col(
+            dcc.Graph(id='chart-with-slider'),
+            width=4
+        ),
+        dbc.Col(
+            dcc.Graph(id='conversion_chart'),
+            width=4
+        ),
         dbc.Col([
             dbc.Row(
-                dbc.Col(dcc.Graph(id='correlation_chart'))
+                dbc.Col(
+                    dcc.Graph(
+                        id='correlation_chart',
+                        style={'height': '80%'}
+                    ), className='h-100'),
+                className='h-75'
             ),
             dbc.Row([
-                    dbc.Col(html.Div(id="HistoricalScore", children="")),
-                    dbc.Col(html.Div(id="HistoricalCoef", children="")),
-                    dbc.Col(html.Div(id="HistoricalCorr", children=""))
-            ])], width=4)
-    ],align="stretch")])
+                    dbc.Col(
+                            [
+                                html.Div(
+                                    id="HistoricalScore",
+                                    children="",
+                                    style={"text-align": "center"}
+                                ),
+                                dbc.Tooltip(
+                                    "R-Score of Linear regression between # total of conversion vs. selected event by day",
+                                    target='HistoricalScore',
+                                )
+                            ],
+                    ),
+                    dbc.Col(
+                            [
+                                html.Div(
+                                    id="HistoricalCoef",
+                                    children="",
+                                    style={"text-align": "center"}
+                                ),
+                                dbc.Tooltip(
+                                    "Coefficient of linear regression between # total of conversion vs. selected event by day",
+                                    target="HistoricalCoef",
+                                )
+                            ],
+                    ),
+                    dbc.Col(
+                            [
+                                html.Div(
+                                    id="HistoricalCorr",
+                                    children="",
+                                    style={"text-align": "center"}
+                                ),
+                                dbc.Tooltip(
+                                    "Correlation between # total of conversion and selected event by day",
+                                    target="HistoricalCorr",
+                                )
+                            ],
+                    )
+            ], className='h-25')],
+            width=4)
+    ], align="stretch")])
 
 
 @app.callback(
@@ -77,7 +162,7 @@ def changerange_csv(year, event):
 
     visits_vs_purchases = concat(dates, dates_conversion, axis=1, columns=["key", "events", "key_2", "conversion"])
     visits_vs_purchases = visits_vs_purchases.dropna()
-    score, coef, _ = LinearRegressionModel(visits_vs_purchases.events, visits_vs_purchases.conversion)
+    score, coeff, _ = LinearRegressionModel(visits_vs_purchases.events, visits_vs_purchases.conversion)
     corr = visits_vs_purchases.corr().iloc[1, 3]
 
     return [figure_lineplot,
@@ -87,5 +172,6 @@ def changerange_csv(year, event):
             "Conversion",
             "Scatter Plot",
             'You have selected " From {0:%Y-%m-%d} - To {1:%Y-%m-%d}"'.format(since, to),
-            "R-Score: \t{:.3f}".format(score), "Coeficient: \t{:.3f}".format(coef[0, 0]), "Correlation: \t{:.3f}".format(corr)
+            "R-Score: \n{:.3f}".format(score),
+            "Coefficient: \n{:.3f}".format(coeff[0, 0]), "Correlation: \n{:.3f}".format(corr)
             ]

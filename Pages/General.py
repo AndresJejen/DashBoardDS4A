@@ -21,22 +21,19 @@ col_width=6
 
 general_tab = html.Div([
     cards,
-    dbc.Col(RangeSlider(sliderId, topdates), width=11),
+    dbc.Col(RangeSlider(sliderId, topdates), width=12),
     dbc.Row([
-        dbc.Col(html.H5("Quantity and price distribution"), width=col_width),
-        #dbc.Col(html.H5("Client Description"), width=4),
-        dbc.Col(html.H5("Purchase Description"), width=col_width)
+        dbc.Col(html.H4("Quantity and price distribution"), style={"text-align": "center"}, width=col_width),
+        dbc.Col(html.H4("Purchase Description"), style={"text-align": "center"}, width=col_width)
     ]),
     dbc.Row([
-        dbc.Col(dcc.Graph(id='histogram-prices-conversion'), width=col_width),
-        #html.Div(),
-        dbc.Col(dcc.Graph(id='barplot-brand-conversion'), width=col_width),
-    ]),
+        dbc.Col(dcc.Graph(id='histogram-prices-conversion'), width=col_width, style={"margin": "auto"}),
+        dbc.Col(dcc.Graph(id='barplot-brand-conversion'), width=col_width, style={"margin": "auto"}),
+    ], style={"margin-top": "5px"}),
     dbc.Row([
-        dbc.Col(dcc.Graph(id='histogram-number-person-conversion'), width=col_width),
-        #html.Div(),
-        dbc.Col(dcc.Graph(id='barplot-condition-conversion'), width=col_width),
-    ])
+        dbc.Col(dcc.Graph(id='histogram-number-person-conversion'), width=col_width, style={"margin": "auto"}),
+        dbc.Col(dcc.Graph(id='barplot-condition-conversion'), width=col_width, style={"margin": "auto"}),
+    ], style={"margin-top": "10px"})
 ])
 
 
@@ -60,10 +57,10 @@ def changerange_csv(year):
     datos_brand_conversion = es.gq_count_model_purchases(since, to)
     datos_condition_conversion = es.gq_count_condition_purchases(since, to)
 
-    prices_conversion = Histogram(datos_prices_conversion['price'])
-    person_conversion = Histogram(datos_person_conversion['Total Purchases'])
-    brand_conversion = barplot(datos_brand_conversion['Brand'], datos_brand_conversion['Total'])
-    condition_conversion = barplot(datos_condition_conversion['Brand'], datos_condition_conversion['Total'])
+    prices_conversion = Histogram(datos_prices_conversion['price'], "Number of conversions by groups of Prices by Day", "Price", "# of conversions")
+    person_conversion = Histogram(datos_person_conversion['Total Purchases'], "Number of conversions by groups of Persons by Day", "Person", "# of conversions")
+    brand_conversion = barplot(datos_brand_conversion['Brand'], datos_brand_conversion['Total'], "Number of conversions by Brand in range of time", "# of conversions", "Brands")
+    condition_conversion = barplot(datos_condition_conversion['Brand'], datos_condition_conversion['Total'], "Number of conversions by Quality status of device in range of time", "# of conversions", "Quality status")
 
     return [prices_conversion,
             person_conversion,

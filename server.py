@@ -12,9 +12,9 @@ cards = dbc.Row([
 
 tabs = dbc.Tabs(
     [
-        dbc.Tab(label="Model", tab_id="Model"),
         dbc.Tab(label="General", tab_id="General"),
-        dbc.Tab(label="Historical", tab_id="Historical")
+        dbc.Tab(label="Historical", tab_id="Historical"),
+        dbc.Tab(label="Model", tab_id="Model"),
     ],
     id="tabs",
 )
