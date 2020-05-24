@@ -9,8 +9,8 @@ import numpy as np
 from Pages.StaticModelPageData import fields, fields_categorical, example_data
 
 cards = dbc.Row([
-            dbc.Col(html.H2("Model"), width=9),
-            dbc.Col(dbc.Button(id="ExampleButton", children="Show Example", color="primary", className="mr-1"), width=3)
+            dbc.Col(html.H2("Model"), width=10),
+            dbc.Col(dbc.Button(id="ExampleButton", children="Show Example", color="success", className="mr-1"), width=2)
         ])
 
 model_tab = html.Div([
@@ -115,7 +115,6 @@ def on_button_click(n):
     """
     example = np.random.randint(4, size=(1, 1))
     return example_data[example[0][0]]
-
 
 
 def user_converts(predicted_value):

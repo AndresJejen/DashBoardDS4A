@@ -54,13 +54,13 @@ introduction_tab = html.Div([
                         html.Li("Random forest classifier"),
                         html.Li(
                             [
-                                html.B("Input"),
+                                html.B("Input "),
                                 "Relevant features, mostly related to past activity"
                             ]
                         ),
                         html.Li(
                             [
-                                html.B("Output"),
+                                html.B("Output "),
                                 "Purchase probability and class prediction"
                             ]
                         ),
@@ -70,10 +70,12 @@ introduction_tab = html.Div([
                                 "due to imbalanced dataset"
                             ]
                         )
-                    ])
+                    ]), className='mb-2'
                 ),
                 dbc.Row(
-                    html.H2("Tab Guide", style={"text-decoration": "underline"}, className='mt-5 mb-3')
+                    [
+                        html.H2("Tab Guide", style={"text-decoration": "underline"}, className='mt-5 mb-5')
+                    ]
                 ),
                 dbc.Row(
                     html.Ul([
@@ -82,7 +84,7 @@ introduction_tab = html.Div([
                             "Some general conversion data"
                         ]),
                         html.Li([
-                            html.B("Correlation: "),
+                            html.B("Correlations: "),
                             "Analysis to calculate past vs. purchases"
                         ]),
                         html.Li([

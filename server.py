@@ -7,13 +7,13 @@ from dash.dependencies import Input, Output
 from Pages import historical_tab, general_tab, model_tab, introduction_tab
 
 cards = dbc.Row([
-            dbc.Col(html.H1("Trocafone DashBoard DS4A"), width=10),
+            dbc.Col(html.H1("DS4A Dashboard - Bogota Team 7"), width=10),
         ])
 
 tabs = dbc.Tabs(
     [
         dbc.Tab(label="Introduction", tab_id="Introduction"),
-        dbc.Tab(label="General", tab_id="General"),
+        dbc.Tab(label="Correlations", tab_id="General"),
         dbc.Tab(label="Historical", tab_id="Historical"),
         dbc.Tab(label="Model", tab_id="Model"),
     ],

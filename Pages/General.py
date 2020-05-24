@@ -14,7 +14,7 @@ topdates = basic_data[0]
 sliderId = "rangeSliderGeneral"
 
 cards = dbc.Row([
-            html.H1(children='General Overview')
+            html.H1(children='Correlation Events Overview')
         ])
 
 col_width=6
