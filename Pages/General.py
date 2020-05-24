@@ -54,11 +54,12 @@ def changerange_csv(year):
 
     datos_prices_conversion = es.gq_prices_in_conversions(since, to)
     datos_person_conversion = es.gq_num_convertions_by_person(since, to)
+    datos_person_conversion = datos_person_conversion[datos_person_conversion['Total Purchases'] < 10]
     datos_brand_conversion = es.gq_count_model_purchases(since, to)
     datos_condition_conversion = es.gq_count_condition_purchases(since, to)
 
     prices_conversion = Histogram(datos_prices_conversion['price'], "Number of conversions by groups of Prices by Day", "Price", "# of conversions")
-    person_conversion = Histogram(datos_person_conversion['Total Purchases'], "Number of conversions by groups of Persons by Day", "Person", "# of conversions")
+    person_conversion = Histogram(datos_person_conversion['Total Purchases'], "Number of conversions by Persons by date", "Person", "# of conversions")
     brand_conversion = barplot(datos_brand_conversion['Brand'], datos_brand_conversion['Total'], "Number of conversions by Brand in range of time", "# of conversions", "Brands")
     condition_conversion = barplot(datos_condition_conversion['Brand'], datos_condition_conversion['Total'], "Number of conversions by Quality status of device in range of time", "# of conversions", "Quality status")
 

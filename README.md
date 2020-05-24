@@ -18,13 +18,13 @@ This part of the project is build in two parts `Backend` and `Frontend`.
 
 ### Backend
 
-The Backend is build with python using Flask as server and Docker as process runner in second plane, 
-also the data that this dashboard uses provides from a database in `Elastic Search`, where all the data provided
-by the company stay safe and is easy to query from authorized users.
+The Backend was built with python using Flask as server and Docker as process runner in the second plane, 
+also the data that this dashboard uses is provided from a database in `Elastic Search`, where the data is
+safe and is easy to request from authorized users.
 
 ### Frontend
 
-The frontend is implemented with `Dash`, a powerful toll for building interactive plots with `Plotly`.
+The frontend is implemented with `Dash`, a powerful tool for building interactive plots with `Plotly`.
 
 ## Data Flow
 
@@ -36,6 +36,9 @@ we plot data.
 ## Model Implementation
 Our Model was packed using pickle format. This file was loaded on Python backend, with schema and weights. On Model Tab,
 we provide some inputs (numeric and Select) where the user can fill it and the model is feeded with this data.
+
+## Do you wanna see it?
+[Link to DashBoard on AWS](http://ec2-3-235-182-44.compute-1.amazonaws.com:9090)
 
 ## Developers
 - Germán Andrés Jején cortés
