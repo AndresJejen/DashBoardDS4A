@@ -29,5 +29,19 @@ The frontend is implemented with `Dash`, a powerful toll for building interactiv
 
 ## Data Flow
 
+For this application the data was indexed on a cluster of `Elastic Search` via Python SDK, every Row of the CSV provided by Trocafone 
+is a Document. We use the power of `DSL` of `Elasticsearch` to query specific data between (~8.7 Millons of Rows) via Python SDK.
+Our Python Backend convert this query into Pandas dataframe and provide some transformations if it is needed, next
+we plot data.
+
+## Model Implementation
+Our Model was packed using pickle format. This file was loaded on Python backend, with schema and weights. On Model Tab,
+we provide some inputs (numeric and Select) where the user can fill it and the model is feeded with this data.
+
+## Developers
+- Germán Andrés Jején cortés
+- Fancisco Paz
+- Victor Saenz Bonilla
+
 
 

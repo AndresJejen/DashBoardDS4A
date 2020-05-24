@@ -1,6 +1,5 @@
 from elasticsearch import Elasticsearch, RequestsHttpConnection, helpers
 import pandas as pd
-import json
 
 
 class ElasticSearchQuery:
@@ -9,6 +8,12 @@ class ElasticSearchQuery:
     """
 
     def __init__(self, user: str, password: str, url: str):
+        """
+        Creates a object of DAO
+        :param user:
+        :param password:
+        :param url:
+        """
         self.user = user
         self.password = password
         self.url = url
@@ -124,6 +129,10 @@ class ElasticSearchQuery:
         return dataframe
 
     def gq_all_events_dataframe(self):
+        """
+        Query a list of unique events
+        :return:
+        """
         query = {
             "size": 0,
             "aggs": {
@@ -141,6 +150,12 @@ class ElasticSearchQuery:
         return data
 
     def gq_prices_in_conversions(self, startdate: str, enddate: str):
+        """
+        Query of prices in conversions
+        :param startdate:
+        :param enddate:
+        :return:
+        """
         query = {
               "_source": "price",
               "query": {
@@ -177,6 +192,12 @@ class ElasticSearchQuery:
         return data
 
     def gq_num_convertions_by_person(self, startdate: str, enddate: str):
+        """
+        Query all conversions by person
+        :param startdate:
+        :param enddate:
+        :return:
+        """
         query = {
           "size": 0,
           "query": {
@@ -213,6 +234,12 @@ class ElasticSearchQuery:
         return data
 
     def gq_personpurchase_conversion(self, startdate: str, enddate: str):
+        """
+        Query all person purchase conversion
+        :param startdate:
+        :param enddate:
+        :return:
+        """
         query = {
           "_source": ["person-purchase"],
           "query": {
@@ -241,6 +268,12 @@ class ElasticSearchQuery:
         return person_purchase
 
     def gq_count_model_purchases(self, startdate: str, enddate: str):
+        """
+        Query a count of purchases by model
+        :param startdate:
+        :param enddate:
+        :return:
+        """
         query = {
           "size": 0,
           "query": {
@@ -281,6 +314,12 @@ class ElasticSearchQuery:
         return model_purchase
 
     def gq_count_condition_purchases(self, startdate: str, enddate: str):
+        """
+        Query a count of conversions by condition by date range
+        :param startdate:
+        :param enddate:
+        :return:
+        """
         query = {
           "size": 0,
           "query": {

@@ -6,11 +6,12 @@ from dash.dependencies import Input, Output
 
 from Elements import dash_table
 import numpy as np
-from Pages.StaticModelPageData import fields, fields_categorical
+from Pages.StaticModelPageData import fields, fields_categorical, example_data
 
 cards = dbc.Row([
-    dbc.Col(html.H2("Model"), width=9)
-])
+            dbc.Col(html.H2("Model"), width=9),
+            dbc.Col(dbc.Button(id="ExampleButton", children="Show Example", color="primary", className="mr-1"), width=3)
+        ])
 
 model_tab = html.Div([
     cards,
@@ -100,6 +101,21 @@ def predict_probability_model(*args):
     converts, styles = user_converts(predicted)
 
     return [f'{predicted} %', converts] + styles
+
+
+@app.callback(
+    [Output("input_{}".format(field['Label']), 'value') for field in fields + fields_categorical],
+    [Input("ExampleButton", "n_clicks")]
+)
+def on_button_click(n):
+    """
+    Apply some prefixed example
+    :param n:
+    :return:
+    """
+    example = np.random.randint(4, size=(1, 1))
+    return example_data[example[0][0]]
+
 
 
 def user_converts(predicted_value):
