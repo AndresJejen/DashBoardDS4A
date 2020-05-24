@@ -159,7 +159,7 @@ def changerange_csv(year, event):
 
     figure_lineplot = lineplot(dates.index, dates['Total'], since, to, event)
     conversion_lineplot = lineplot(dates_conversion.index, dates_conversion['Total'], since, to, 'conversion')
-    correlation_scatter = scatterplot(dates_conversion.Total, dates.Total, since, to, 'conversion')
+    correlation_scatter = scatterplot(dates_conversion.Total, dates.Total, since, to, 'conversion', "", "# Selected Event", "# of conversions")
 
     visits_vs_purchases = concat(dates, dates_conversion, axis=1, columns=["key", "events", "key_2", "conversion"])
     visits_vs_purchases = visits_vs_purchases.dropna()
