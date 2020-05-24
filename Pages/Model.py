@@ -102,6 +102,7 @@ def predict_probability_model(*args):
 
     return [f'{predicted} %', converts] + styles
 
+variable = 0
 
 @app.callback(
     [Output("input_{}".format(field['Label']), 'value') for field in fields + fields_categorical],

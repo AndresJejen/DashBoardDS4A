@@ -1,4 +1,4 @@
-# DashBoard DS4A Dashboard - Bogota Team 7
+# DashBoard DS4A - Bogota Team 7
 
 Frontend for Final project DS4A Latam.
 Data Source: provided by company
@@ -29,7 +29,7 @@ The frontend is implemented with `Dash`, a powerful toll for building interactiv
 ## Data Flow
 
 For this application the data was indexed on a cluster of `Elastic Search` via Python SDK, every Row of the CSV provided by the company 
-is a Document. We use the power of `DSL` of `Elasticsearch` to query specific data between (~8.7 Millons of Rows) via Python SDK.
+is a Document. We use the power of `DSL` of `Elasticsearch` to query specific data between (~8.7 Millions of Rows) via Python SDK.
 Our Python Backend convert this query into Pandas dataframe and provide some transformations if it is needed, next
 we plot data.
 

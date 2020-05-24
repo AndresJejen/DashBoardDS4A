@@ -86,7 +86,8 @@ historical_tab = html.Div([
                     ), className='h-100'),
                 className='h-75'
             ),
-            dbc.Row([
+            dbc.Row(
+                [
                     dbc.Col(
                             [
                                 html.Div(
@@ -98,7 +99,7 @@ historical_tab = html.Div([
                                     "R-Score of Linear regression between # total of conversion vs. selected event by day",
                                     target='HistoricalScore',
                                 )
-                            ],
+                            ], width=3
                     ),
                     dbc.Col(
                             [
@@ -111,7 +112,7 @@ historical_tab = html.Div([
                                     "Coefficient of linear regression between # total of conversion vs. selected event by day",
                                     target="HistoricalCoef",
                                 )
-                            ],
+                            ], width=3
                     ),
                     dbc.Col(
                             [
@@ -124,9 +125,9 @@ historical_tab = html.Div([
                                     "Correlation between # total of conversion and selected event by day",
                                     target="HistoricalCorr",
                                 )
-                            ],
+                            ], width=3
                     )
-            ], className='h-25')],
+                ], className='h-25')],
             width=4)
     ], align="stretch")])
 
@@ -172,6 +173,7 @@ def changerange_csv(year, event):
             "Conversion",
             "Scatter Plot",
             'You have selected " From {0:%Y-%m-%d} - To {1:%Y-%m-%d}"'.format(since, to),
-            "R-Score: \n{:.3f}".format(score),
-            "Coefficient: \n{:.3f}".format(coeff[0, 0]), "Correlation: \n{:.3f}".format(corr)
+            "    R-Score: \n{:.3f}".format(score),
+            "Coefficient: \n{:.3f}".format(coeff[0, 0]),
+            "Correlation: \n{:.3f}".format(corr)
             ]
