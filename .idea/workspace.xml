@@ -116,9 +116,10 @@
     </state>
     <state width="1899" height="327" key="GridCell.Tab.0.right/0.0.1366.768/-315.-1080.1920.1080@-315.-1080.1920.1080" timestamp="1590340143063" />
     <state width="1345" height="293" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1589755975632" />
-    <state x="-56" y="-1043" key="SettingsEditor" timestamp="1590264885110">
-      <screen x="-315" y="-1080" width="1920" height="1080" />
+    <state x="259" y="37" key="SettingsEditor" timestamp="1591054866670">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
+    <state x="259" y="37" key="SettingsEditor/-1366.306.1366.768/0.0.1920.1080@0.0.1920.1080" timestamp="1591054866670" />
     <state x="-56" y="-1043" key="SettingsEditor/0.0.1366.768/-315.-1080.1920.1080@-315.-1080.1920.1080" timestamp="1590264885110" />
     <state x="184" y="26" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1589575336072" />
     <state x="533" y="293" key="com.intellij.ide.util.TipDialog" timestamp="1591054810113">
